@@ -75,6 +75,8 @@ def get_extensions():
         ]
         if os.name != "nt":
             nvcc_args.append("-std=c++17")
+        else:
+            nvcc_args.append("-DWIN32_LEAN_AND_MEAN")
         if cub_home is None:
             prefix = os.environ.get("CONDA_PREFIX", None)
             if prefix is not None and os.path.isdir(prefix + "/include/cub"):
